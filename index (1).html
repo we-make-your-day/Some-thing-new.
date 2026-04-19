@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>A Message From My Heart 💌</title>
+  <meta name="description" content="A special, heartfelt message made just for you — open this and feel the love." />
+  <meta property="og:title" content="💌 Someone Sent You Something Special" />
+  <meta property="og:description" content="Open this to read a heartfelt message made just for you." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating ambient hearts (background layer) -->
+  <div class="ambient-layer" id="ambientLayer"></div>
+
+  <!-- Main app wrapper -->
+  <div class="app-wrapper" id="appWrapper">
+
+    <!-- ─────────────── SCREEN 1: INTRO ─────────────── -->
+    <div class="screen active" id="screen-intro">
+      <div class="screen-bg-text">LOVE</div>
+      <div class="card card--intro">
+        <div class="card-texture"></div>
+        <div class="floating-hearts-card" id="floatingHeartsIntro"></div>
+        <span class="pill-label">💌 A Special Delivery</span>
+        <div class="heart-icon-large">
+          <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C37 5 45 10 50 18 C55 10 63 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z" fill="url(#heartGrad)" />
+            <defs>
+              <linearGradient id="heartGrad" x1="5" y1="5" x2="95" y2="85" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#e05c7a"/>
+                <stop offset="100%" stop-color="#8b1a2f"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h1 class="card-headline">A Special Question…</h1>
+        <p class="card-subtext">Someone thought of you today.<br/>Something beautiful awaits inside.</p>
+        <button class="btn btn--primary pulse" id="introOpenBtn" onclick="goToScreen('screen-names')">
+          Open <span class="btn-icon">✦</span>
+        </button>
+        <div class="card-footer-note">Made with love, just for you ♡</div>
+      </div>
+      <p class="outer-label">Send this to your crush 🌹</p>
+    </div>
+
+    <!-- ─────────────── SCREEN 2: NAMES ─────────────── -->
+    <div class="screen" id="screen-names">
+      <div class="card card--names">
+        <div class="card-texture"></div>
+        <span class="pill-label">✦ Personalize</span>
+        <h2 class="card-headline">A Heartfelt Proposal</h2>
+        <p class="card-subtext" style="margin-bottom: 2rem;">Let's make this yours.</p>
+
+        <div class="input-group">
+          <label class="input-label">Your Name</label>
+          <input
+            type="text"
+            class="input-field"
+            id="yourName"
+            value="Sumith"
+            maxlength="30"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Their Name</label>
+          <input
+            type="text"
+            class="input-field"
+            id="crushName"
+            value="Radha"
+            maxlength="30"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="name-preview" id="namePreview">
+          <div class="name-preview-from">From <span id="previewYour">Sumith</span></div>
+          <div class="name-preview-divider">⸻ ♡ ⸻</div>
+          <div class="name-preview-to">To <span id="previewCrush">Radha</span></div>
+        </div>
+
+        <button class="btn btn--primary" id="continueNamesBtn" onclick="handleNamesContinue()">
+          Continue <span class="btn-icon">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 3a: MESSAGE 1 ─────────────── -->
+    <div class="screen" id="screen-msg1">
+      <div class="card card--message">
+        <div class="card-texture"></div>
+        <div class="msg-icon">✦</div>
+        <p class="msg-chapter">Chapter I</p>
+        <h2 class="msg-headline">Every moment<br/>with you<br/>is magical.</h2>
+        <p class="msg-body">The way you laugh, the way you speak — every little thing about you turns ordinary days into something I never want to forget.</p>
+        <div class="msg-divider">— ♡ —</div>
+        <button class="btn btn--ghost" onclick="goToScreen('screen-msg2')">
+          Keep Reading <span class="btn-icon">↓</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 3b: MESSAGE 2 ─────────────── -->
+    <div class="screen" id="screen-msg2">
+      <div class="card card--message card--message-alt">
+        <div class="card-texture"></div>
+        <div class="msg-icon" style="color:#c0756a;">♥</div>
+        <p class="msg-chapter">Chapter II</p>
+        <h2 class="msg-headline">You make my<br/>heart beat<br/>a little faster.</h2>
+        <p class="msg-body">One glance from you, and the whole world slows down. I don't think you know the effect you have on me.</p>
+        <div class="msg-divider">— ♡ —</div>
+        <button class="btn btn--ghost" onclick="goToScreen('screen-msg3')">
+          Continue <span class="btn-icon">↓</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 3c: MESSAGE 3 ─────────────── -->
+    <div class="screen" id="screen-msg3">
+      <div class="card card--message">
+        <div class="card-texture"></div>
+        <div class="msg-icon" style="font-size: 1.4rem;">🌙</div>
+        <p class="msg-chapter">Chapter III</p>
+        <h2 class="msg-headline">I never knew<br/>love could feel<br/>this soft.</h2>
+        <p class="msg-body">Like a quiet morning, like the first breath of spring. Being near you is the gentlest feeling I've ever known.</p>
+        <div class="msg-divider">— ♡ —</div>
+        <button class="btn btn--ghost" onclick="goToScreen('screen-msg4')">
+          Continue <span class="btn-icon">↓</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 3d: MESSAGE 4 ─────────────── -->
+    <div class="screen" id="screen-msg4">
+      <div class="card card--message card--message-alt">
+        <div class="card-texture"></div>
+        <div class="msg-icon" style="font-size:1.5rem;">🕯️</div>
+        <p class="msg-chapter">Chapter IV</p>
+        <h2 class="msg-headline">My favorite place<br/>is wherever<br/>you are.</h2>
+        <p class="msg-body">Distance doesn't matter. Time doesn't matter. As long as you're there, every place feels like home to me.</p>
+        <div class="msg-divider">— ♡ —</div>
+        <div class="handwritten-note" id="handwrittenNote">
+          <p>— and if I'm being honest,<br/>I've been wanting to say this<br/>for a very long time. —</p>
+        </div>
+        <button class="btn btn--primary" onclick="goToScreen('screen-gallery')">
+          See Our Moments <span class="btn-icon">✦</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 4: GALLERY ─────────────── -->
+    <div class="screen" id="screen-gallery">
+      <div class="card card--gallery">
+        <div class="card-texture"></div>
+        <span class="pill-label">🌸 Our Beautiful Moments</span>
+        <h2 class="card-headline" style="margin-top: 0.5rem; font-size: 1.6rem;">Every Memory<br/>We've Made</h2>
+
+        <div class="gallery-frame" id="galleryFrame">
+          <div class="gallery-slide active" id="gallerySlide0">
+            <img class="gallery-photo" src="photo1.jpg" alt="Our Moment 1" />
+          </div>
+          <div class="gallery-slide" id="gallerySlide1">
+            <img class="gallery-photo" src="photo2.jpg" alt="Our Moment 2" />
+          </div>
+          <div class="gallery-slide" id="gallerySlide2">
+            <img class="gallery-photo" src="photo3.jpg" alt="For You 🌸" />
+          </div>
+          <div class="gallery-slide" id="gallerySlide3">
+            <div class="gallery-placeholder" style="background: linear-gradient(135deg, #2d1a1f 0%, #1a0d12 100%);">
+              <div class="gp-inner">
+                <div class="gp-heart" style="font-size: 3rem;">💕</div>
+                <p class="gp-label" style="font-size:1rem; line-height:1.6;">"Every picture<br/>tells our story."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-nav">
+          <button class="gallery-arrow" onclick="prevSlide()" aria-label="Previous">‹</button>
+          <div class="gallery-dots" id="galleryDots">
+            <span class="gallery-dot active" onclick="goToSlide(0)"></span>
+            <span class="gallery-dot" onclick="goToSlide(1)"></span>
+            <span class="gallery-dot" onclick="goToSlide(2)"></span>
+            <span class="gallery-dot" onclick="goToSlide(3)"></span>
+          </div>
+          <button class="gallery-arrow" onclick="nextSlide()" aria-label="Next">›</button>
+        </div>
+
+        <button class="btn btn--primary" style="margin-top: 1.5rem;" onclick="goToScreen('screen-decision')">
+          Continue <span class="btn-icon">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 5: DECISION ─────────────── -->
+    <div class="screen" id="screen-decision">
+      <div class="card card--decision" id="decisionCard">
+        <div class="card-texture"></div>
+        <div class="decision-hearts" id="decisionHearts"></div>
+        <div class="decision-icon">💍</div>
+        <h2 class="decision-question" id="decisionQuestion">
+          Will you<br/>accept me?
+        </h2>
+        <p class="decision-subtext" id="decisionSubName"></p>
+        <p class="decision-body">I've searched through all my feelings, and every single one points back to you.</p>
+
+        <div class="decision-buttons">
+          <button class="btn btn--yes" id="yesBtn" onclick="handleYes()">
+            Haan! ❤️
+          </button>
+          <button class="btn btn--no" id="noBtn" onmouseover="runAwayNo()" onclick="runAwayNoClick()">
+            Nahi 🙈
+          </button>
+        </div>
+        <p class="decision-hint">Choose wisely 🌹</p>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 6: FINAL PROPOSAL ─────────────── -->
+    <div class="screen" id="screen-final">
+      <div class="confetti-layer" id="confettiLayer"></div>
+      <div class="card card--final" id="finalCard">
+        <div class="card-texture"></div>
+        <div class="final-top-ornament">✦ ♡ ✦</div>
+        <h2 class="final-headline">Will You<br/>Be Mine?</h2>
+        <div class="final-name-display" id="finalNameDisplay">
+          <span class="final-name-from" id="finalNameFrom">You</span>
+          <span class="final-name-heart">♡</span>
+          <span class="final-name-to" id="finalNameTo">Them</span>
+        </div>
+
+        <div class="final-photo-area">
+          <div class="final-photo-frame" id="finalPhotoLeft">
+            <img src="photo1.jpg" alt="Memory" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="final-photo-frame" id="finalPhotoRight">
+            <img src="photo2.jpg" alt="Memory" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+        </div>
+
+        <p class="final-message">"From the first time I saw you, I knew — you were the one I'd been waiting for."</p>
+        <div class="final-signature" id="finalSignature">— with all my love ♡</div>
+
+        <div class="final-actions">
+          <button class="btn btn--primary" onclick="replayStory()">Replay Story ↺</button>
+          <button class="btn btn--outline" onclick="shareStory()">Share 🔗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SCREEN 7: END ─────────────── -->
+    <div class="screen screen--end" id="screen-end">
+      <div class="end-ambient" id="endAmbient"></div>
+      <div class="end-content">
+        <div class="end-icon">♡</div>
+        <h2 class="end-headline">Share this<br/>with your crush.</h2>
+        <p class="end-subtext">Comment <em>"Crush"</em> below<br/>& I'll send this to you. 💌</p>
+        <button class="btn btn--outline-light" style="margin-top: 2.5rem;" onclick="replayStory()">
+          Replay Story ↺
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /app-wrapper -->
+
+  <script src="app.js"></script>
+</body>
+</html>
